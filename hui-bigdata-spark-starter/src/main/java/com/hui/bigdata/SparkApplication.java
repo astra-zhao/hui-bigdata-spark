@@ -35,9 +35,8 @@ public class SparkApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // 初始化Spark环境
         SparkConf sparkConf = new SparkConf()
-                .setAppName(sparkConfig.getAppName())
-                .setMaster(sparkConfig.getMaster());
-
+                .setMaster(sparkConfig.getMaster()).setJars(new String[] {"/opt/hui-bigdata-spark-starter-1.0.0-SNAPSHOT.jar"}).setAppName(sparkConfig.getAppName());
+        sparkConf.set("spark.testing.memory", "471859200");
         JavaSparkContext javaSparkContext = new JavaSparkContext(sparkConf);
 
         String className = args[0];

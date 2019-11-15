@@ -7,6 +7,10 @@ server:
   port: 8081
 #sparkconfig配置
 spark:
-  app-name: hui
-  master: local[4]
+  app-name: sparkBoot
+    #如果是在远程主机跑，用下面配置
+  #master: spark://122.51.56.146:7077
+  #master: spark://localhost:7077
+    #如果是本地跑，用下面配置
+  master: local
   spark-home: 1
